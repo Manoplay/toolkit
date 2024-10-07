@@ -921,6 +921,7 @@ public class Toolkit extends javax.swing.JFrame
         installProfileMod = new javax.swing.JMenuItem();
         exportWorld = new javax.swing.JMenuItem();
         exportSceneGraph = new javax.swing.JMenuItem();
+        lamsKeyGen = new javax.swing.JMenuItem();
         debugMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -2162,6 +2163,17 @@ public class Toolkit extends javax.swing.JFrame
             }
         });
         toolsMenu.add(exportSceneGraph);
+
+        lamsKeyGen.setText("Calculate LAMS key");
+        lamsKeyGen.setToolTipText("Generated a LAMS identifier for a string key");
+        lamsKeyGen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String lams = JOptionPane.showInputDialog("String key identifier");
+                if (lams != null)
+                    JOptionPane.showMessageDialog(Toolkit.this, RTranslationTable.makeLamsKeyID(lams));
+            }
+        });
+        toolsMenu.add(lamsKeyGen);
 
         navigation.add(toolsMenu);
 
@@ -3800,6 +3812,7 @@ public class Toolkit extends javax.swing.JFrame
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator9;
+    private javax.swing.JMenuItem lamsKeyGen;
     private javax.swing.JMenuItem loadArchive;
     public javax.swing.JMenuItem loadBigProfile;
     public javax.swing.JMenuItem loadDB;
